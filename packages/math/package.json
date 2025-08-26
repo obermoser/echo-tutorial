@@ -1,12 +1,15 @@
 {
-  "name": "@workspace/backend",
+  "name": "@workspace/math",
   "type": "module",
   "scripts": {
-    "dev": "convex dev",
-    "setup": "convex dev --until-success"
+    "dev": "tsc --watch",
+    "build": "tsc"
   },
   "exports": {
-    "./convex": "./convex/*.ts",
+    "./add": {
+      "types": "./src/add.ts",
+      "default": "./dist/add.js"
+    },
     "./subtract": {
       "types": "./src/subtract.ts",
       "default": "./dist/subtract.js"
@@ -15,8 +18,5 @@
   "devDependencies": {
     "@workspace/typescript-config": "workspace:*",
     "typescript": "latest"
-  },
-  "dependencies": {
-    "convex": "^1.26.1"
   }
 }
