@@ -16,7 +16,7 @@ export const add = mutation({
             throw new Error("Not authenticated!")
         }
         const user = await ctx.db.insert("users", {
-            name: "New User",
+            name: "Test User",
         });
 
 
