@@ -6,11 +6,7 @@
     "setup": "convex dev --until-success"
   },
   "exports": {
-    "./convex": "./convex/*.ts",
-    "./subtract": {
-      "types": "./src/subtract.ts",
-      "default": "./dist/subtract.js"
-    }
+    "./convex": "./convex/*.ts"
   },
   "devDependencies": {
     "@workspace/typescript-config": "workspace:*",
