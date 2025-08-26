@@ -10,7 +10,7 @@ export default function Page() {
         <h1 className="text-2xl font-bold">Hello apps/web</h1>
 
         <pre>
-          {JSON.stringify(users, null, 2)}
+          {users ? JSON.stringify(users, null, 2) : "Loading..."}
         </pre>
       </div>
     </div>
