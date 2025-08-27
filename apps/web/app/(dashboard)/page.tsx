@@ -29,6 +29,7 @@ export default function Page() {
             Add Test User
           </Button>
           <pre>{users ? JSON.stringify(users, null, 2) : "Loading..."}</pre>
+          <p>Homo Erectus</p>
         </div>
       </div>
     </>
