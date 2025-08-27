@@ -8,7 +8,6 @@ import {
 import { api } from "@workspace/backend/_generated/api";
 import { OrganizationSwitcher, SignInButton, UserButton } from "@clerk/nextjs";
 import { Button } from "@workspace/ui/components/button";
-import { AuthGuard } from "@/modules/auth/ui/components/auth-guard";
 export default function Page() {
   const users = useQuery(api.users.getMany);
   const addUser = useMutation(api.users.add);
