@@ -12,6 +12,12 @@ export const add = mutation({
     args: {},
     handler: async (ctx) => {
         const identity = await ctx.auth.getUserIdentity();
+        const orgId = identity?.orgId as string;
+
+        if (!orgId) {
+            throw new Error("Organization ID is required");
+        }
+
         if (identity === null) {
             throw new Error("Not authenticated!")
         }
