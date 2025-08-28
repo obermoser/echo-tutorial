@@ -16,7 +16,7 @@ export default function Page() {
         <p>isConnected: {`${isConnected}`}</p>
         <p>isConnecting: {`${isConnecting}`}</p>
         <p>isSpeaking: {`${isSpeaking}`}</p>
-        <p>transcript: {JSON.stringify(transcript, null, 2)}</p>
+        <p>Transcript: {JSON.stringify(transcript, null, 2)}</p>
 
       </div>
     </div>
