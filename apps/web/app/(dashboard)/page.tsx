@@ -20,7 +20,6 @@ export default function Page() {
           <OrganizationSwitcher hidePersonal/>
           <Button
             className="cursor-pointer"
-            variant={"secondary"}
             onClick={() => {
               addUser();
             }}
