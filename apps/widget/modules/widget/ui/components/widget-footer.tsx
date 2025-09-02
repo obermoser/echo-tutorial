@@ -28,7 +28,7 @@ const WidgetFooter = () => {
             >
                 <InboxIcon
                     className={cn(
-                        "size-5", screen === "inbox" && "text-primary"
+                        "size-5"
                     )}
                 />
             </Button>
