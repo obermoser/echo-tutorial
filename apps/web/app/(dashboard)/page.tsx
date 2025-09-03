@@ -1,12 +1,10 @@
 "use client";
 import {
-  Authenticated,
-  Unauthenticated,
   useMutation,
   useQuery,
 } from "convex/react";
 import { api } from "@workspace/backend/_generated/api";
-import { OrganizationSwitcher, SignInButton, UserButton } from "@clerk/nextjs";
+import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import { Button } from "@workspace/ui/components/button";
 export default function Page() {
   const users = useQuery(api.users.getMany);
