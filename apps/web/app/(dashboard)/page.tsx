@@ -15,16 +15,17 @@ export default function Page() {
     <>
       <div className="flex items-center justify-center min-h-svh">
         <div className="flex flex-col items-center justify-center gap-4">
-          <h1 className="text-2xl font-bold">Hello apps/web</h1>
+          <h1 className="text-3xl font-bold">Hello apps/web</h1>
           <UserButton />
           <OrganizationSwitcher hidePersonal/>
           <Button
+          variant={"secondary"}
             className="cursor-pointer"
             onClick={() => {
               addUser();
             }}
           >
-            Add Test User
+            Add User
           </Button>
           <pre>{users ? JSON.stringify(users, null, 2) : "Loading..."}</pre>
           
