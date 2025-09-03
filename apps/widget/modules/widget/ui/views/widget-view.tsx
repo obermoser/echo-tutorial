@@ -1,6 +1,4 @@
 "use client";
-
-import { error } from "console";
 import { screenAtom } from "../../atoms/widget-atoms";
 import { WidgetAuthScreen } from "../screens/widget-auth-screen";
 import { useAtomValue } from "jotai";
