@@ -5,11 +5,12 @@ import React, { useEffect, useState } from "react";
 import {
   errorMessageAtom,
   loadingMessageAtom,
+  organizationIdAtom,
   screenAtom,
 } from "../../atoms/widget-atoms";
 import WidgetHeader from "../components/widget-header";
 import { LoaderIcon } from "lucide-react";
-import { useMutation } from "convex/react";
+import { useAction, useMutation } from "convex/react";
 import { api } from "@workspace/backend/_generated/api";
 
 type initStep = "org" | "session" | "settings" | "vapi" | "done";
@@ -26,8 +27,9 @@ export const WidgetLoadingScreen = ({
   const loadingMessage = useAtomValue(loadingMessageAtom);
   const setScreen = useSetAtom(screenAtom);
   const setLoadingMessage = useSetAtom(loadingMessageAtom);
+  const setOrganizationId = useSetAtom(organizationIdAtom);
 
-  const validateOrganization = useMutation(api.public.organizations.validate);
+  const validateOrganization = useAction(api.public.organizations.validate);
 
   useEffect(() => {
     if (step != "org") return;
@@ -36,16 +38,40 @@ export const WidgetLoadingScreen = ({
     if (!organizationId) {
       setErrorMessage("Organization ID is required");
       setScreen("error");
+      return;
     }
 
     setLoadingMessage("Verifying organization...");
 
-    validateOrganization({ organizationId }).then((result) => {
-      if (result.valid) {
-        //TODO: Finish this
-      }
-    });
-  }, [step, organizationId, setErrorMessage, setScreen]);
+    // Step 1: Validate Organization
+    validateOrganization({ organizationId })
+      .then((result) => {
+        if (result.valid) {
+          setOrganizationId(organizationId);
+          setStep("session");
+        } else {
+          setErrorMessage(result.reason || "Invalid configuration");
+          setScreen("error");
+        }
+      })
+      .catch(() => {
+        setErrorMessage("Unable to verify organization");
+        setScreen("error");
+      });
+  }, [
+    step,
+    organizationId,
+    setErrorMessage,
+    setScreen,
+    setOrganizationId,
+    setStep,
+    validateOrganization,
+    setLoadingMessage,
+  ]);
+
+  // Step 2: Validate session (if exists)
+  const validateContactSession = useMutation(api.public.contactSessions.validate);
+  useEffect(() => { }, []);
 
   return (
     <>
