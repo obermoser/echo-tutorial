@@ -16,6 +16,8 @@ export const validate = mutation({
         organizationId: args.organizationId,
       });
       return { valid: true };
-    } catch (error) {return {valid: false, reason: "Organization not found"}}
+    } catch (error) {
+      return { valid: false, reason: "Organization not found" };
+    }
   },
 });

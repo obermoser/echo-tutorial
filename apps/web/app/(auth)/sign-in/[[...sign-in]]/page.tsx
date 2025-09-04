@@ -1,7 +1,7 @@
 import { SignInView } from "@/modules/auth/ui/components/views/sign-in-view";
 
 const SignInPage = () => {
-   return <SignInView/>
-}
+  return <SignInView />;
+};
 
 export default SignInPage;

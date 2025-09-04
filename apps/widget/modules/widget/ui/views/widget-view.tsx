@@ -6,28 +6,27 @@ import { WidgetErrorScreen } from "../screens/widget-error-screen";
 import { WidgetLoadingScreen } from "../screens/widget-loading-screen";
 
 interface Props {
-    organizationId: string;
+  organizationId: string;
 }
 
 export const WidgetView = ({ organizationId }: Props) => {
-    const screen = useAtomValue(screenAtom);
-    const screenComponents = {
-        error: <WidgetErrorScreen />,
-        loading: <WidgetLoadingScreen organizationId={organizationId} />,
-        auth: <WidgetAuthScreen />,
-        voice: <p>TODO: voice</p>,
-        inbox: <p>TODO: inbox</p>,
-        selection: <p>TODO: selection</p>,
-        chat: <p>TODO: chat</p>,
-        contact: <p>TODO: contact</p>
-    }
+  const screen = useAtomValue(screenAtom);
+  const screenComponents = {
+    error: <WidgetErrorScreen />,
+    loading: <WidgetLoadingScreen organizationId={organizationId} />,
+    auth: <WidgetAuthScreen />,
+    voice: <p>TODO: voice</p>,
+    inbox: <p>TODO: inbox</p>,
+    selection: <p>TODO: selection</p>,
+    chat: <p>TODO: chat</p>,
+    contact: <p>TODO: contact</p>,
+  };
 
-    return (
-        // TODO: Confirm wether min-h-screen/min-w-screen is needed
-        <main className="flex min-h-screen min-w-screen h-full w-full flex-col overflow-hidden rounded-xl border bg-muted">
-
-            {screenComponents[screen]}
-            {/* <WidgetFooter /> */}
-        </main>
-    );
+  return (
+    // TODO: Confirm wether min-h-screen/min-w-screen is needed
+    <main className="flex min-h-screen min-w-screen h-full w-full flex-col overflow-hidden rounded-xl border bg-muted">
+      {screenComponents[screen]}
+      {/* <WidgetFooter /> */}
+    </main>
+  );
 };

@@ -1,8 +1,5 @@
 "use client";
-import {
-  useMutation,
-  useQuery,
-} from "convex/react";
+import { useMutation, useQuery } from "convex/react";
 import { api } from "@workspace/backend/_generated/api";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import { Button } from "@workspace/ui/components/button";
@@ -15,9 +12,9 @@ export default function Page() {
         <div className="flex flex-col items-center justify-center gap-4">
           <h1 className="text-3xl font-bold">Hello apps/web</h1>
           <UserButton />
-          <OrganizationSwitcher hidePersonal/>
+          <OrganizationSwitcher hidePersonal />
           <Button
-          variant={"secondary"}
+            variant={"secondary"}
             className="cursor-pointer"
             onClick={() => {
               addUser();
@@ -26,7 +23,6 @@ export default function Page() {
             Add User
           </Button>
           <pre>{users ? JSON.stringify(users, null, 2) : "Loading..."}</pre>
-          
         </div>
       </div>
     </>

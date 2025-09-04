@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Vapi = () => {
-  return (
-    <div>Vapi</div>
-  )
-}
+  return <div>Vapi</div>;
+};
 
-export default Vapi
+export default Vapi;
