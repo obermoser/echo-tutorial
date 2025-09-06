@@ -69,7 +69,7 @@ export const WidgetLoadingScreen = ({
     setLoadingMessage,
   ]);
 
-  // Step 2: Validate session (if exists)
+  // TODO: Step 2: Validate session (if exists)
   const validateContactSession = useMutation(api.public.contactSessions.validate);
   useEffect(() => { }, []);
 
