@@ -71,7 +71,13 @@ export const WidgetLoadingScreen = ({
 
   // TODO: Step 2: Validate session (if exists)
   const validateContactSession = useMutation(api.public.contactSessions.validate);
-  useEffect(() => { }, []);
+  useEffect(() => { 
+    if(step !== "session" ){
+      return;
+    }
+
+    
+  }, []);
 
   return (
     <>
