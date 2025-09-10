@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@workspace/ui/components/button";
 import WidgetHeader from "../components/widget-header";
 import { Input } from "@workspace/ui/components/input";
@@ -22,10 +23,11 @@ const formSchema = z.object({
   email: z.string().email("Invalid email address"),
 });
 
-// TODO: Replace with actual organization ID
-const organizationId = useAtomValue(organizationIdAtom);
+
 
 export const WidgetAuthScreen = () => {
+  // TODO: Replace with actual organization ID
+  const organizationId = useAtomValue(organizationIdAtom);
   const setContactSessionId = useSetAtom(contactSessionIdAtomFamily(organizationId || ""));
 
   const form = useForm<z.infer<typeof formSchema>>({
